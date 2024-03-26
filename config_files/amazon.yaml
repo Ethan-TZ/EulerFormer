@@ -1,0 +1,42 @@
+# dataset config
+field_separator: "\t"
+seq_separator: " "
+USER_ID_FIELD: user_id
+ITEM_ID_FIELD: item_id
+RATING_FIELD: rating
+TIME_FIELD: timestamp
+NEG_PREFIX: neg_
+ITEM_LIST_LENGTH_FIELD: item_length
+LIST_SUFFIX: _list
+MAX_ITEM_LIST_LENGTH: 50
+POSITION_FIELD: position_id
+load_col:
+    inter: [user_id, item_id, rating, timestamp]
+    item: [item_id, brand]
+# data filtering for interactions
+val_interval:
+    rating: "[3,inf)"    
+unused_col: 
+    inter: [rating]
+show_progress: False
+stopping_step: 10
+user_inter_num_interval: "[10,inf)"
+item_inter_num_interval: "[10,inf)"
+# training and evaluation
+epochs: 500
+train_batch_size: 4096
+eval_batch_size: 1024
+valid_metric: NDCG@10
+eval_args:
+    split: {'LS': 'valid_and_test'}
+    mode: full
+    order: TO
+
+# disable negative sampling
+train_neg_sample_args: ~
+
+# model
+embedding_size: 64
+learning_rate: 0.001
+ft_ratio: 0.5
+selected_features: ['brand']
