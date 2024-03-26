@@ -42,6 +42,6 @@ Now that the RecBole framework and datasets are ready, follow their instructions
 
 - We have provided a hyper-parameter file named `hyper-para.test`. This file contains the necessary hyper-parameters.
 
-- The basic search settings of different models follow [recbole's official recommendation](https://recbole.io/hyperparameters/sequential.html).
+- The basic search settings of all models follow [recbole's official recommendation](https://recbole.io/hyperparameters/sequential.html).
 
 Wait for the execution to complete, and RecBole will output the results of the model evaluation.
