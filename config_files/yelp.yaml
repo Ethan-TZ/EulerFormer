@@ -19,7 +19,7 @@ val_interval:
 unused_col:
     inter: [rating]
 show_progress: False
-stopping_step: 6
+stopping_step: 15
 user_inter_num_interval: "[40,inf)"
 item_inter_num_interval: "[10,inf)"
 # training and evaluation
