@@ -2,7 +2,7 @@
 [SIGIR 2024] This is the official PyTorch implementation for the paper: "EulerFormer: Sequential User Behavior Modeling with Complex Vector Attention".
 
 ## Overview
-We proposes a novel transformer variant with complex vector attention, named **EulerFormer**, which provides a unified theoretical framework to formulate both semantic difference and positional difference. 
+We proposes a novel transformer variant with complex vector attention, named **EulerFormer (located in `EulerFormer_models/layers.py -- EulerFormer`)**, which provides a unified theoretical framework to formulate both semantic difference and positional difference. 
 The EulerFormer involves two key technical improvements. First, it employs a new transformation function for efficiently transforming the sequence tokens into {polar-form** complex vectors using Euler's formula, enabling the unified modeling of both semantic and positional information in a complex rotation form. Secondly, it develops a differential rotation mechanism, where the semantic rotation angles can be controlled by an adaptation function, enabling the adaptive integration of the semantic and positional information according to the semantic contexts. Furthermore, a phase contrastive learning task is proposed to improve the anisotropy of contextual representations in EulerFormer. Our theoretical framework possesses a high degree of completeness and generality (e.g. RoPE can be instantiated as a special case). It is  more robust to semantic variations and possesses more superior theoretical properties (e.g. long-term decay) in principle. Extensive experiments conducted on four public datasets demonstrate the effectiveness and efficiency of our approach.
 
 ![](asset/model.jpg)
