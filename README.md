@@ -3,13 +3,7 @@
 
 ## Overview
 We proposes a novel transformer variant with complex vector attention, named **EulerFormer**, which provides a unified theoretical framework to formulate both semantic difference and positional difference. 
-The EulerFormer involves two key technical improvements. 
-First, it employs a new transformation function for efficiently transforming the sequence tokens into {polar-form** complex vectors using Euler's formula, enabling the unified modeling of both semantic and positional information in a complex rotation form.
-Secondly, it develops a differential rotation mechanism, where the semantic rotation angles can be controlled by an adaptation function, enabling the adaptive integration of the semantic and positional information according to the semantic contexts.
-Furthermore, a phase contrastive learning task is proposed to improve the anisotropy of contextual representations in EulerFormer. 
-Our theoretical framework possesses a high degree of completeness and generality (e.g. RoPE can be instantiated as a special case). It is  more robust to semantic variations and possesses more
-superior theoretical properties (e.g. long-term decay) in principle.   
-Extensive experiments conducted on four public datasets demonstrate the effectiveness and efficiency of our approach.
+The EulerFormer involves two key technical improvements. First, it employs a new transformation function for efficiently transforming the sequence tokens into {polar-form** complex vectors using Euler's formula, enabling the unified modeling of both semantic and positional information in a complex rotation form. Secondly, it develops a differential rotation mechanism, where the semantic rotation angles can be controlled by an adaptation function, enabling the adaptive integration of the semantic and positional information according to the semantic contexts. Furthermore, a phase contrastive learning task is proposed to improve the anisotropy of contextual representations in EulerFormer. Our theoretical framework possesses a high degree of completeness and generality (e.g. RoPE can be instantiated as a special case). It is  more robust to semantic variations and possesses more superior theoretical properties (e.g. long-term decay) in principle. Extensive experiments conducted on four public datasets demonstrate the effectiveness and efficiency of our approach.
 
 ![](asset/model.jpg)
 
@@ -36,7 +30,7 @@ Follow the steps below to set up RecBole on your local machine.
 
 - Navigate to [RecBole's official website](https://recbole.io/) and download the latest release of the framework.
 - After downloading, extract the zip file to a suitable location on your machine.
-- Now, locate the `recbole/model/sequential_recommender` directory within the extracted folder.
+- Now, locate the `recbole/model` directory within the extracted folder.
 - Download the files in `EulerFormer_models` provided by us and substitute the files in Recbole.
 
 
