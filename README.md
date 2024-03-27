@@ -1,5 +1,5 @@
 # EulerFormer
-[SIGIR 2024] This is the official PyTorch implementation for the paper: "EulerFormer: Sequential User Behavior Modeling with Complex Vector Attention".
+[SIGIR 2024] This is the official PyTorch implementation for the paper: ["EulerFormer: Sequential User Behavior Modeling with Complex Vector Attention"](https://arxiv.org/abs/2403.17729).
 
 ## Overview
 We proposes a novel transformer variant with complex vector attention, named **EulerFormer (located in `EulerFormer_models/layers.py -- EulerFormer`)**, which provides a unified theoretical framework to formulate both semantic difference and positional difference. 
