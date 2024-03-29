@@ -388,8 +388,8 @@ class EulerFormer(nn.Module):
         super().__init__()
         self.alpha = None
         if config.euler_bias:
-            self.b = nn.Parameter(torch.zeros(1, 1, config.MAX_ITEM_LIST_LENGTH, config.hidden_size // 2)) 
-            # Note: Here is the positional wise to adjust each query, or you can use the global wise: nn.Parameter(torch.zeros(1))
+            self.b = nn.Parameter(torch.zeros(1))
+            # Note: This bias is the global wise, or you can use the positional wise to adjust each query: nn.Parameter(torch.zeros(1, 1, config.MAX_ITEM_LIST_LENGTH, config.hidden_size // 2)) 
         else:
             self.b = 0
         
