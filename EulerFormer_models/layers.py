@@ -388,7 +388,7 @@ class EulerFormer(nn.Module):
         super().__init__()
         self.alpha = None
         if config.euler_bias:
-            self.b = nn.Parameter(torch.zeros(1, 1, config.MAX_ITEM_LIST_LENGTH, config.hidden_size // 2))
+            self.b = nn.Parameter(torch.zeros(1))
         else:
             self.b = 0
         
@@ -654,10 +654,6 @@ class TransformerLayer(nn.Module):
     def get_loss(self):
         self.loss = self.multi_head_attention.loss
 
-    def get_baba(self):
-        return self.multi_head_attention.baba
-
-
 class TransformerEncoder(nn.Module):
     r"""One TransformerEncoder consists of several TransformerLayers.
 
@@ -687,7 +683,7 @@ class TransformerEncoder(nn.Module):
         config=None
     ):
         super(TransformerEncoder, self).__init__()
-        layer = TransformerLayer(
+        self.layer = nn.ModuleList([TransformerLayer(
             n_heads,
             hidden_size,
             inner_size,
@@ -696,8 +692,7 @@ class TransformerEncoder(nn.Module):
             hidden_act,
             layer_norm_eps,
             config
-        )
-        self.layer = nn.ModuleList([copy.deepcopy(layer) for _ in range(n_layers)])
+        ) for _ in range(n_layers)])
 
     def forward(self, hidden_states, attention_mask, output_all_encoded_layers=True):
         """
@@ -723,7 +718,6 @@ class TransformerEncoder(nn.Module):
 
     def get_loss(self):
         self.loss = sum(model.loss for model in self.layer)
-
 class ItemToInterestAggregation(nn.Module):
     def __init__(self, seq_len, hidden_size, k_interests=5):
         super().__init__()
