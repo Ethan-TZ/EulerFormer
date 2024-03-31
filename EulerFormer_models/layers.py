@@ -394,6 +394,7 @@ class EulerFormer(nn.Module):
             self.b = 0
         
         self.delta = nn.Parameter(torch.ones(1) * config.init_factor)
+            # Note: You can also use its vector wise: nn.Parameter(torch.ones(config.hidden_size // 2) * config.init_factor)
 
         self.get_alpha(1, 1, config.MAX_ITEM_LIST_LENGTH, config.hidden_size)
 
