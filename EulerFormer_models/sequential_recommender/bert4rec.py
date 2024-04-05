@@ -206,7 +206,7 @@ class BERT4Rec(SequentialRecommender):
                 loss_fct(logits.view(-1, test_item_emb.size(0)), pos_items.view(-1))
                 * targets
             ) / torch.sum(targets)
-            return loss
+            return loss + self.trm_encoder.loss
         else:
             raise NotImplementedError("Make sure 'loss_type' in ['BPR', 'CE']!")
 
